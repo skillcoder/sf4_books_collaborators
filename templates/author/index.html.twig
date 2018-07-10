@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Author :: lib.skillcoder.com{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Authors ✅</h1>
+	<a href="/author/add" class="btn btn-success">Add</a>
+	{% if authors %}
+		<table id="table" class="table table-striped">
+			<thead>
+			  <tr>
+				<th>#</th>
+				<th>Name</th>
+				<th>Actions</th>
+			  </tr>
+			</thead>
+			<tbody>
+				{% for author in authors %}
+					<tr>
+						<td>{{ author.id }}</td>
+						<td>
+							{{ author.name }}
+						</td>
+						<td>
+							<a href="/author/{{ author.id }}" class="btn btn-dark">Manage books</a>
+							<a href="#" class="btn btn-danger delete-item" data-id="{{ author.id }}" data-item="author">Delete</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<p>No authors to display, please add some...</p>
+	{% endif %}
+</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('js/main.js') }}"></script>
+{% endblock %}
+

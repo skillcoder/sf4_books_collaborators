@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Collaborators :: lib.skillcoder.com{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1>Result! ✅</h1>
+
+<pre>
+{{ sql }}
+</pre>
+    {% if list %}
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Book</th>
+                <th>Authors count</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for row in list %}
+                    <tr>
+                        <td>{{ row.name }}</td>
+                        <td>
+                            {{ row.cnt }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No any book with 3 authors to display, please add some of them...</p>
+    {% endif %}
+
+</div>
+{% endblock %}

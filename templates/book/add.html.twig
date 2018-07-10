@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}new Book :: lib.skillcoder.com{% endblock %}
+
+{% block body %}
+    <h1>Add new book &#x2795;</h1>
+	{{ form_start(form) }}
+	{{ form_widget(form) }}
+	{{ form_end(form) }}
+{% endblock body %}

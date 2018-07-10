@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Author Books :: lib.skillcoder.com{% endblock %}
+
+{% block body %}
+
+<style>
+.block {margin-top: 5px;}
+</style>
+    <h1>{{ author.name }} books &ggg;</h1>
+<div id="books">
+{% for book in books %}
+<div class="block">
+  <span>#{{ book.id }}</span>
+  <a href="#" class="btn {% if book_ids[book.id] is defined %}btn-success delete-item{% else %}btn-danger add-item{% endif %}" data-id="{{ book.id }}" data-item="{{ author.id }}">{{ book.name }}</a>
+</div>
+{% endfor %}
+</div>
+
+
+{% endblock body %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/edit.js') }}"></script>
+{% endblock %}
+

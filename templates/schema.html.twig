@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Schema :: lib.skillcoder.com{% endblock %}
+
+{% block body %}
+<style>
+</style>
+
+
+
+        <div>
+            <p class="lead">
+            <h1>Schema</h1>
+<a href="{{ path('collaborators') }}">Click for SQL request</a>
+				<img src="{{ asset('/img/schema.png') }}" alt="schema.png"  class="img-responsive pull-right"/>
+<h2>Author</h2>
+<pre>
+ CREATE TABLE `author` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</pre>
+<h2>Book</h2>
+<pre>
+CREATE TABLE `book` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</pre>
+<h2>author_book</h2>
+<pre>
+CREATE TABLE `author_book` (
+  `author_id` int(11) NOT NULL,
+  `book_id` int(11) NOT NULL,
+  PRIMARY KEY (`author_id`,`book_id`),
+  KEY `idx_author_id` (`author_id`),
+  KEY `idx_book_id` (`book_id`),
+  CONSTRAINT `fk_book_id` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_author_id` FOREIGN KEY (`author_id`) REFERENCES `author` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB;
+</pre>
+            </p>
+        </div>
+
+{% endblock body %}
