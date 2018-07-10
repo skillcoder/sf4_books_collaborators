@@ -7,4 +7,4 @@ Main page consist database schema.
 
 Collaborators link show all books which have 3 authors equally.
 
-[Demo](https://lib.skillcoder.com)
+[Demo](http://lib.skillcoder.com)
